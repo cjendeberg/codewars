@@ -1,0 +1,13 @@
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.exe
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.deps.json
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.runtimeconfig.json
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.runtimeconfig.dev.json
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.dll
+C:\git-alt\codewars\codewars-20201222-1\bin\Debug\netcoreapp3.1\codewars-20201222-1.pdb
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.csprojAssemblyReference.cache
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.AssemblyInfoInputs.cache
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.AssemblyInfo.cs
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.csproj.CoreCompileInputs.cache
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.dll
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.pdb
+C:\git-alt\codewars\codewars-20201222-1\obj\Debug\netcoreapp3.1\codewars-20201222-1.genruntimeconfig.cache
