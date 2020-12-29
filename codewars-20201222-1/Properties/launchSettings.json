@@ -2,7 +2,7 @@
   "profiles": {
     "codewars-20201222-1": {
       "commandName": "Project",
-      "commandLineArgs": "true 1 1001"
+      "commandLineArgs": "--test --from 11 --to 12"
     }
   }
 }
