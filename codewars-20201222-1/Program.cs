@@ -19,42 +19,87 @@ namespace codewars_20201222_1
       return sum;
     }
 
-    static double sumOfNumberDiviableByX(long n, long x)
+    static long sumOfNumberDiviableByXAlt(long n, long x)
     {
       long multiplier = n - 1 - (n - 1) % x;
-      return multiplier + multiplier * ((double)(multiplier / x - 1) / 2);
+      long result = 0;
+      long numDivisable = multiplier / x;
+      if (numDivisable % 2 == 1)
+      {
+        // There an odd number of numbers divisable by x
+        // Numbers (including zero) can be paired and the sum of each pair is equal to multiplier
+        result = multiplier * (numDivisable + 1) / 2;
+      }
+      else
+      {
+        // Numbers, excluding middle element can be paired. Amounts to one less pair but the unpaired number is added
+        // multiplier * numDivisable / 2 + multiplier / 2
+        result = (multiplier * numDivisable + multiplier) / 2;
+      }
+      return result;
     }
 
+    static void ShowUsage()
+    {
+      Console.WriteLine("dotnet run --from FROM --to TO [--test]");
+    }
     static void Main(string[] args)
     {
-      int testMin, testMax;
-      bool test;
-      if ((Boolean.TryParse(args[0], out test)) && Int32.TryParse(args[1], out testMin) && (Int32.TryParse(args[2], out testMax)))
+      int from = -1, to = -1;
+      bool test = false;
+      for (int i = 0; i < args.Length; i++)
       {
-        Stopwatch sw = new Stopwatch();
-        Stopwatch swTest = new Stopwatch();
-        for (var n = testMin; n < testMax; n++)
+        switch (args[i])
         {
-          sw.Start();
-          double sum = sumOfNumberDiviableByX(n, 3) + sumOfNumberDiviableByX(n, 5) - sumOfNumberDiviableByX(n, 15);
-          sw.Stop();          
-
-          if (test)
-          {
-            Console.WriteLine("Test...");
-            swTest.Start();
-            double testSum = sumOfNumberDiviableBy3And5(n);
-            swTest.Stop();            
-            if (test && (sum != testSum))
+          case "--from":
+            if (!((++i) < args.Length) || !Int32.TryParse(args[i], out from))
             {
-              Console.WriteLine($"Error: Sums are not equal: sum: {sum} testSum: {testSum}");
-              Environment.Exit(1);
-            }              
-          }
-          Console.WriteLine($"n: {n} Sum: {sum}");          
+              ShowUsage();
+            }
+            break;
+          case "--to":
+            if (!((++i) < args.Length) || !Int32.TryParse(args[i], out to))
+            {
+              ShowUsage();
+            }
+            break;
+          case "--test":
+            test = true;
+            break;
+          default:
+            ShowUsage();
+            Environment.Exit(1);
+            break;
         }
-        Console.WriteLine("Elapsed={0} Test elapsed={1}", sw.Elapsed, swTest.Elapsed);
       }
+      if ((from == -1) || (to == -1))
+      {
+        ShowUsage();
+        Environment.Exit(1);
+      }
+      Stopwatch sw = new Stopwatch();
+      Stopwatch swTest = new Stopwatch();
+      for (var n = from; n < to; n++)
+      {
+        sw.Start();
+        long sum = sumOfNumberDiviableByXAlt(n, 3) + sumOfNumberDiviableByXAlt(n, 5) - sumOfNumberDiviableByXAlt(n, 15);
+        sw.Stop();
+
+        if (test)
+        {
+          Console.WriteLine("Test...");
+          swTest.Start();
+          double testSum = sumOfNumberDiviableBy3And5(n);
+          swTest.Stop();
+          if (test && (sum != testSum))
+          {
+            Console.WriteLine($"Error: Sums are not equal: sum: {sum} testSum: {testSum}");
+            Environment.Exit(1);
+          }
+        }
+        Console.WriteLine($"n: {n} Sum: {sum}");
+      }
+      Console.WriteLine("Elapsed={0} Test elapsed={1}", sw.Elapsed, swTest.Elapsed);
     }
   }
 }
